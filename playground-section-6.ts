@@ -56,7 +56,7 @@ interface Person {
 type Noop = () => any;
 type Noop2 = () => void;
 
-export default function play5() {
+export default function play6() {
   // const names: string[] = ['Alice', 'Bob', 'Tiff', 'Bruce', 'Alice'];
   // const numbers: Array<number> = [1, 2, 3, 4, 5];
   // const random = Math.random() > 0.5 ? 'Hello' : [1, 2];
