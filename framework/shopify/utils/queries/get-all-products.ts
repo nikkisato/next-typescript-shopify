@@ -34,11 +34,11 @@ const productConnection =`
       }
     `
 
-const getAllProductsQuery = `
+    const getAllProductsQuery = `
     query getAllProducts($first: Int = 250) {
-        products(first: $first) {
-            ${productConnection}
-        }
+      products(first: $first) {
+        ${productConnection}
+      }
     }
   `
 
