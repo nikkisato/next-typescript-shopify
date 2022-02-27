@@ -9,20 +9,25 @@
     "build:css": "postcss assets/main.css -o assets/main_browser.css"
   },
   "dependencies": {
-    "deepmerge": "^4.2.2",
+    "classnames": "^2.3.1",
     "next": "12.1.0",
-    "postcss": "^8.4.7",
-    "postcss-cli": "^9.1.0",
-    "prettier": "^2.5.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "tailwindcss": "^3.0.23"
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
     "@types/node": "^17.0.18",
     "@types/react": "^17.0.39",
     "autoprefixer": "^10.4.2",
     "eslint": "8.9.0",
-    "eslint-config-next": "12.1.0"
+    "eslint-config-next": "12.1.0",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-import": "^14.0.2",
+    "deepmerge": "^4.2.2",
+    "postcss": "^8.4.7",
+    "postcss-cli": "^9.1.0",
+    "postcss-nesting": "^10.1.2",
+    "postcss-preset-env": "^7.4.1",
+    "prettier": "^2.5.1",
+    "tailwindcss": "^3.0.15"
   }
 }
