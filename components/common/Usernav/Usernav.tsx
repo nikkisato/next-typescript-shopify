@@ -10,13 +10,11 @@ const Usernav: FC = () => {
     <nav>
       <ul className={s.list}>
         <li className={s.item}>
-          Cart 
           <Cart />
         </li>
         <li className={s.item}>
           <Link href="/">
             <a>
-              Wishlist
               <Heart />
             </a>
           </Link>
