@@ -5,6 +5,7 @@ import {
   getProduct
 } from "@framework/product"
 import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType } from "next"
+import { ProductView } from "@components/product"
 
 // fetch all of the products slugs
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -17,7 +18,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-// provide product specific data to the page
+// provide product spefici data to the page
 export const getStaticProps = async ({
   params }: GetStaticPropsContext<{slug: string}>
 ) => {
@@ -38,10 +39,11 @@ export const getStaticProps = async ({
 export default function ProductSlug({
   product }: InferGetStaticPropsType<typeof getStaticProps>
 ) {
+
   return (
-    <div>
-      {JSON.stringify(product, null, 2)}
-    </div>
+    <>
+      { product && <ProductView product={product} />}
+    </>
   )
 }
 
