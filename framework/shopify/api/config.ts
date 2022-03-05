@@ -1,5 +1,6 @@
 import { ApiConfig } from "@common/types/api"
 import { fetchApi } from "../utils"
+import { SHOPIFY_CHECKOUT_ID_COOKIE } from "@framework/const"
 
 class Config {
   private config: ApiConfig
@@ -14,8 +15,8 @@ class Config {
 }
 
 const configWrapper = new Config({
-  apiUrl: "http://localhost:4000/graphql",
-  fetch: fetchApi
+  fetch: fetchApi,
+  checkoutCookie: SHOPIFY_CHECKOUT_ID_COOKIE
 })
 
 export function getConfig() {
