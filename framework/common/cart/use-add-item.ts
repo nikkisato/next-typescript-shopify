@@ -9,7 +9,6 @@ const useAddItem = () => {
   })
 
   return useMutationHook({...hook})
-
 }
 
 export default useAddItem

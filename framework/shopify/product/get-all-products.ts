@@ -1,4 +1,3 @@
-
 import {
   normalizeProduct,
   getAllProductsQuery
@@ -16,7 +15,7 @@ const getAllProducts = async (config: ApiConfig): Promise<Product[]> => {
     query: getAllProductsQuery
   })
 
-  const products = data?.products.edges.map(({ node: product }) =>
+  const products = data.products.edges.map(({ node: product }) =>
     normalizeProduct(product)
   ) ?? []
 
