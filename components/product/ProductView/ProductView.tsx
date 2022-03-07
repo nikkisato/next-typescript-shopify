@@ -13,9 +13,9 @@ interface Props {
   product: Product
 }
 
-
 const ProductView: FC<Props> = ({ product }) => {
   const [ choices, setChoices ] = useState<Choices>({})
+  const [ isLoading, setIsLoading ] = useState(false)
 
   const { openSidebar } = useUI()
   const addItem = useAddItem()
@@ -26,15 +26,19 @@ const ProductView: FC<Props> = ({ product }) => {
     try {
       const item = {
         productId: String(product.id),
-        variantId: String(variant?.id),
-        variantOptions: variant?.options,
+        variantId: String(variant ? variant.id : product.variants[0].id),
         quantity: 1
       }
 
-      const output = await addItem(item)
+      setIsLoading(true)
+      await addItem(item)
+      setIsLoading(false)
       openSidebar()
-    } catch {}
+    } catch {
+      setIsLoading(false)
+    }
   }
+
   return (
     <Container>
       <div className={cn(s.root, 'fit', "mb-5")}>
@@ -70,7 +74,7 @@ const ProductView: FC<Props> = ({ product }) => {
               <div key={option.id} className="pb-4">
                 <h2 className="uppercase font-medium">{option.displayName}</h2>
                 <div className="flex flex-row py-4">
-                { option.values.map(optValue => {
+                  { option.values.map(optValue => {
                     const activeChoice = choices[option.displayName.toLowerCase()]
                     return (
                       <Swatch
@@ -98,7 +102,10 @@ const ProductView: FC<Props> = ({ product }) => {
           <div>
             <Button
               className={s.button}
-              onClick={addToCart}>              Add to Cart
+              onClick={addToCart}
+              isLoading={isLoading}
+            >
+              Add to Cart
             </Button>
           </div>
         </div>
@@ -108,3 +115,4 @@ const ProductView: FC<Props> = ({ product }) => {
 }
 
 export default ProductView
+
